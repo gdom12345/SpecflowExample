@@ -1,0 +1,28 @@
+﻿{
+  "endpoints": [
+    {
+      "name": "Nation_Population_GET",
+      "api": "POP_Data",
+      "callType": "GET",
+      "path": "data?drilldowns={drilldowns}&measures={measures}"
+    },
+    {
+      "name": "University_GET",
+      "api": "univerity_search",
+      "callType": "GET",
+      "path": "search?country={country}"
+    },
+    {
+      "name": "IP_GET",
+      "api": "ip_find",
+      "callType": "GET",
+      "path": "?format={format}"
+    },
+    {
+      "name": "ZIP_GET",
+      "api": "zip",
+      "callType": "GET",
+      "path": "/us/{zip}"
+    }
+  ]
+}

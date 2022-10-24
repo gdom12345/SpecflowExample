@@ -1,0 +1,27 @@
+﻿{
+  "currentEnvironment": "QA",
+  "environments": [
+    {
+      "environment" : "QA",
+      "apis": [
+        {
+          "name": "POP_Data",
+          "baseUrl": "https://datausa.io/about/api/"
+        },
+        {
+          "name": "univerity_search",
+          "baseUrl": "http://universities.hipolabs.com/"
+        },
+        {
+          "name": "ip_find",
+          "baseUrl": "https://api.ipify.org"
+        },
+        {
+          "name": "zip",
+          "baseUrl": "http://www.zippopotam.us/"
+        }
+      ]
+    }
+
+  ]
+}
