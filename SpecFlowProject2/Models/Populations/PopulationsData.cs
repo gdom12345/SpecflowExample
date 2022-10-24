@@ -17,7 +17,7 @@ namespace SpecFlowProject2.Models.Populations
     internal class CountryPopulation
     {
         [JsonProperty("ID Nation")]
-        public string nationId {get;set;}
+        public string nationId { get; set; }
 
         [JsonProperty("Nation")]
         public string nation { get; set; }

@@ -30,10 +30,10 @@ namespace SpecFlowProject2.StepDefinitions
             var parameterDictionary = ToDictionary(parameters);
             Endpoint endpoint = EnvironmentInfo.endpointData.getEndPoint(apiEndpoint);
             var client = new RestClient(endpoint.getBaseUrl() + endpoint.path);
-         
+            //Need to add solution to handle Authentication and Auth differences between endpoints
             RestRequest restRequest = new RestRequest();
             restRequest.Method = endpoint.GetCallMethod();
-  
+
             foreach (string key in parameterDictionary.Keys)
             {
                 //Expand on this to account for body also
@@ -46,9 +46,9 @@ namespace SpecFlowProject2.StepDefinitions
                     restRequest.AddParameter(key, parameterDictionary[key]);
                 }
             }
-  
+
             var response = client.Execute(restRequest);
-    
+
             scenarioContext.Add(responseKey, response);
         }
 
@@ -61,6 +61,7 @@ namespace SpecFlowProject2.StepDefinitions
 
 
         //I need to do some work to clean this up or find a different comparison library
+        //Also move this to utility class
         private void validateJsonMatch(string expected, string actual)
         {
             var result = new JsonDiffPatch().Diff(expected, actual);
@@ -73,7 +74,7 @@ namespace SpecFlowProject2.StepDefinitions
         {
             var response = scenarioContext.Get<RestResponse>(responseKey);
             Assert.AreEqual(expectedResponseCode, (int)response.StatusCode);
-        
+
         }
 
         [Then(@"I validate API data ""([^""]*)"" against expected result of ""([^""]*)""")]
@@ -84,6 +85,7 @@ namespace SpecFlowProject2.StepDefinitions
             validateJsonMatch(expected, actual.Content);
         }
 
+        //move this to utility class
         private static Dictionary<string, string> ToDictionary(Table table)
         {
             var dictionary = new Dictionary<string, string>();
