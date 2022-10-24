@@ -1,15 +1,8 @@
 using JsonDiffPatchDotNet;
-using Microsoft.XmlDiffPatch;
-using Newtonsoft.Json;
 using NUnit.Framework;
 using RestSharp;
-using SpecFlow.Internal.Json;
 using SpecFlowProject2.Models;
 using SpecFlowProject2.Utils;
-using System;
-using System.Text;
-using System.Xml;
-using TechTalk.SpecFlow;
 
 namespace SpecFlowProject2.StepDefinitions
 {
