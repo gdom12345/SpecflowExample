@@ -26,10 +26,10 @@ Scenario Outline: Validate ZIP Test API for Multiple Locations
 		| zip        | <zip>  |
 	Then I validate response code for "API Output" is 200
 	And I validate API data "API Output" against expected result of "Expected API Result" using model "SpecFlowProject2.Models.Location"
-	Examples: 
-	 | zip   | expected result		|
-	 | 54401 | expectedData.json	|
-	 | 54452 |    LocationResults/expectedMerrill.json       |
+Examples:
+	| zip   | expected result                      |
+	| 54401 | expectedData.json                    |
+	| 54452 | LocationResults/expectedMerrill.json |
 
 @tag1
 Scenario: Validate Population Test API
