@@ -10,9 +10,9 @@ Haven't implemented any API calls that use authentication, look into how this ca
 
 Expand on parameters options
 
-Look into Scenario Outline or equivalent data driven scenario for Specflow
+~~Look into Scenario Outline or equivalent data driven scenario for Specflow
 
-Maybe do an example that Deserializes and compares POCO's instead of direct JSON compare
+~~Maybe do an example that Deserializes and compares POCO's instead of direct JSON compare
 
 Look up SQL samples and add some logic for that
 
