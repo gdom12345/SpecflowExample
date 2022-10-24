@@ -1,4 +1,5 @@
 using JsonDiffPatchDotNet;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using RestSharp;
 using SpecFlowProject2.Models;
@@ -88,5 +89,17 @@ namespace SpecFlowProject2.StepDefinitions
             }
             return dictionary;
         }
+
+        [Then(@"I validate API data ""([^""]*)"" against expected result of ""([^""]*)"" using model ""([^""]*)""")]
+        public void ThenIValidateAPIDataAgainstExpectedResultOfUsingModel(string actualKey, string expectedKey, string model)
+        {
+            Type type = ReflectionUtils.GetTypeByName(model);
+            var expectedData = JsonConvert.DeserializeObject(scenarioContext.Get<string>(expectedKey), type);
+            var actualData = JsonConvert.DeserializeObject(scenarioContext.Get<RestResponse>(actualKey).Content, type);
+
+            Assert.AreEqual(expectedData, actualData);
+        }
+
+
     }
 }

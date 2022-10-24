@@ -91,7 +91,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.Given("I open resource file \"expectedData.json\" and save to \"Expected API Result\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I open resource file \"wrongExpectedData.json\" and save to \"Expected API Result\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "Parameters",
@@ -114,15 +114,13 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Validate Population Test API")]
-        [NUnit.Framework.CategoryAttribute("tag1")]
-        public void ValidatePopulationTestAPI()
+        [NUnit.Framework.DescriptionAttribute("Validate ZIP using Deserialization and then comparing")]
+        public void ValidateZIPUsingDeserializationAndThenComparing()
         {
-            string[] tagsOfScenario = new string[] {
-                    "tag1"};
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Population Test API", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 15
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate ZIP using Deserialization and then comparing", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -132,19 +130,105 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 15
+ testRunner.Given("I open resource file \"expectedData.json\" and save to \"Expected API Result\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                             "Parameters",
                             "Values"});
                 table2.AddRow(new string[] {
-                            "drilldowns",
-                            "Nation"});
-                table2.AddRow(new string[] {
-                            "measures",
-                            "Population"});
+                            "zip",
+                            "54401"});
 #line 16
- testRunner.When("I call API \"Nation_Population_GET\" and save response to \"API Output\"", ((string)(null)), table2, "When ");
+ testRunner.When("I call API \"ZIP_GET\" and save response to \"API Output\"", ((string)(null)), table2, "When ");
+#line hidden
+#line 19
+ testRunner.Then("I validate response code for \"API Output\" is 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 20
+ testRunner.And("I validate API data \"API Output\" against expected result of \"Expected API Result\"" +
+                        " using model \"SpecFlowProject2.Models.Location\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Validate ZIP Test API for Multiple Locations")]
+        [NUnit.Framework.TestCaseAttribute("54401", "expectedData.json", null)]
+        [NUnit.Framework.TestCaseAttribute("54452", "LocationResults/expectedMerrill.json", null)]
+        public void ValidateZIPTestAPIForMultipleLocations(string zip, string expectedResult, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("zip", zip);
+            argumentsOfScenario.Add("expected result", expectedResult);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate ZIP Test API for Multiple Locations", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 22
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 23
+ testRunner.Given(string.Format("I open resource file \"{0}\" and save to \"Expected API Result\"", expectedResult), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Parameters",
+                            "Values"});
+                table3.AddRow(new string[] {
+                            "zip",
+                            string.Format("{0}", zip)});
+#line 24
+ testRunner.When("I call API \"ZIP_GET\" and save response to \"API Output\"", ((string)(null)), table3, "When ");
+#line hidden
+#line 27
+ testRunner.Then("I validate response code for \"API Output\" is 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 28
+ testRunner.And("I validate API data \"API Output\" against expected result of \"Expected API Result\"" +
+                        " using model \"SpecFlowProject2.Models.Location\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Validate Population Test API")]
+        [NUnit.Framework.CategoryAttribute("tag1")]
+        public void ValidatePopulationTestAPI()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "tag1"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Population Test API", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 35
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Parameters",
+                            "Values"});
+                table4.AddRow(new string[] {
+                            "drilldowns",
+                            "Nation"});
+                table4.AddRow(new string[] {
+                            "measures",
+                            "Population"});
+#line 36
+ testRunner.When("I call API \"Nation_Population_GET\" and save response to \"API Output\"", ((string)(null)), table4, "When ");
+#line hidden
+#line 40
  testRunner.Then("I validate response code for \"API Output\" is 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -160,7 +244,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "tag1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate University Test API", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 23
+#line 43
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -170,16 +254,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                             "Parameters",
                             "Values"});
-                table3.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "country",
                             "United+States"});
-#line 24
- testRunner.When("I call API \"University_GET\" and save response to \"API Output\"", ((string)(null)), table3, "When ");
+#line 44
+ testRunner.When("I call API \"University_GET\" and save response to \"API Output\"", ((string)(null)), table5, "When ");
 #line hidden
-#line 27
+#line 47
  testRunner.Then("I validate response code for \"API Output\" is 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -193,7 +277,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate IP Test API", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 30
+#line 50
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -203,16 +287,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                             "Parameters",
                             "Values"});
-                table4.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "format",
                             "json"});
-#line 31
- testRunner.When("I call API \"IP_GET\" and save response to \"API Output\"", ((string)(null)), table4, "When ");
+#line 51
+ testRunner.When("I call API \"IP_GET\" and save response to \"API Output\"", ((string)(null)), table6, "When ");
 #line hidden
-#line 34
+#line 54
  testRunner.Then("I validate response code for \"API Output\" is 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

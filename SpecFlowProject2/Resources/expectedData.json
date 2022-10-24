@@ -1,14 +1,1 @@
-﻿{
-  "post code": "54401",
-  "country": "United States",
-  "country abbreviation": "USA",
-  "places": [
-    {
-      "place name": "Wausau",
-      "longitude": "-89.70667",
-      "state": "Wisconsin",
-      "state abbreviation": "WI",
-      "latitude": "44.9654"
-    }
-  ]
-}
+﻿{"post code": "54401", "country": "United States", "country abbreviation": "US", "places": [{"place name": "Wausau", "longitude": "-89.7066", "state": "Wisconsin", "state abbreviation": "WI", "latitude": "44.9654"}]}
